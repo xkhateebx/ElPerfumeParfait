@@ -16,6 +16,6 @@ const CommentSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "Perfume"
     }
-})
+}, { timestamps: true });
 
-module.exports = mongoose.model("Comment", CommentSchema);
+module.exports.Comment = mongoose.model("Comment", CommentSchema);

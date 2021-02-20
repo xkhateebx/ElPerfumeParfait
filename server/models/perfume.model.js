@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const PerfumeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true],
+        required: [true, "Perfume must have a name"],
         minLength: [2, "Name must be at least 2 characters"]
     },
     company: {
@@ -16,20 +16,22 @@ const PerfumeSchema = new mongoose.Schema({
         minLength: [2, "Add Description"]
     },
     content: {
-        type: String, 
-    }
-    // image: {
-    //     type: Buffer,
-    //     optional: [true],
-    // }
-    // comments: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Comment"
-    // }],
-    // like: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Like"
-    // }]
-})
+        type: String 
+    },
+    image: {
+        type: String
+    },
+    wheretobuy: {
+        type: String
+    },
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
+    }],
+    like: [{
+        type: Schema.Types.ObjectId,
+        ref: "Like"
+    }]
+}, { timestamps: true });
 
-module.exports = mongoose.model("Perfume", PerfumeSchema);
+module.exports.Perfume = mongoose.model("Perfume", PerfumeSchema);

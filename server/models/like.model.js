@@ -9,6 +9,6 @@ const LikeSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "Perfume"
     }
-})
+}, { timestamps: true });
 
-module.exports = mongoose.model("Like", LikeSchema);
+module.exports.Like = mongoose.model("Like", LikeSchema);

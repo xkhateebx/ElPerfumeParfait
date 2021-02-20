@@ -28,20 +28,33 @@ const AddForm = () => {
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
     const [image, setImage] = useState("");
+    const [wheretobuy, setWheretoBuy] = useState("");
 
     const [errors, setErrors] = useState([]);
+
+
+    //Get All PErfumes
+    const [perfumes, setPerfumes] = useState([])
+    
+    useEffect( () => {
+        axios.get('http://localhost:8000/api/allPerfumes')
+            .then(response => setPerfumes((response.data)))
+            .catch(error => console.log("There was an issue: ", error))
+    },[])
+    //////////
 
     const onSubmitHandler = e => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/addInfo', {
             name: name,
-            company: company
-            // description: description,
-            // content: content,
-            // image: image
+            company: company,
+            description: description,
+            content: content,
+            image: image,
+            wheretobuy: wheretobuy
         })
             .then(res=>console.log(res))
-            // .then(() => navigate("/"))
+            .then(() => navigate("/"))
             .catch(err => {
                 const errorResponse = err.response.data.errors;
                 const errorArray = [];
@@ -69,11 +82,11 @@ const AddForm = () => {
                         <form onSubmit={ onSubmitHandler }>
                             <FormControl variant="outlined" style={styles.input}>
                                 <InputLabel>Perfume Name</InputLabel>
-                                <OutlinedInput type="text"onChange={(e)=>setName(e.target.value)}/>
+                                <OutlinedInput type="text"onChange={(e)=>setName(e.target.value)} value={name} placeholder="name"/>
                             </FormControl>
                             <FormControl variant="outlined" style={styles.input}>
                                 <InputLabel>Company</InputLabel>
-                                <OutlinedInput type="text"onChange={(e)=>setCompany(e.target.value)}/>
+                                <OutlinedInput type="text"onChange={(e)=>setCompany(e.target.value)} value={company} placeholder="company"/>
                             </FormControl>
                             <FormControl variant="outlined" style={styles.input}>
                                 <InputLabel>Description</InputLabel>
@@ -85,7 +98,11 @@ const AddForm = () => {
                             </FormControl>
                             <FormControl variant="outlined" style={styles.input}>
                                 <InputLabel>Image</InputLabel>
-                                <OutlinedInput type="text"onChange={(e)=>setImage(e.target.value)}/>
+                                <OutlinedInput type="text" onChange={(e)=>setImage(e.target.value)} value={image} />
+                            </FormControl>
+                            <FormControl variant="outlined" style={styles.input}>
+                                <InputLabel>Where to Buy</InputLabel>
+                                <OutlinedInput type="text" onChange={(e)=>setWheretoBuy(e.target.value)} value={wheretobuy} />
                             </FormControl>
                             <Button onClick={()=>navigate("/")} className="btn btn-secondary btn-sm">
                                 Cancel
@@ -98,8 +115,22 @@ const AddForm = () => {
                     </center>
                 </div>
                 <div className="col-12">
-
-                </div>
+                {perfumes.length > 0 && perfumes.map((item,index)=>
+                {
+                    return(
+                        <div key={index}>
+                            <p>{item._id}</p>
+                            <p>{item.name}</p>
+                            <p>{item.company}</p>
+                            <p>{item.description}</p>
+                            <p>{item.content}</p>
+                            <p><img src={`../images/${item.image}.jpg`} alt={item.image} height="300px" width="300px"/></p> 
+                        </div>
+                    )
+                }
+                                                )
+                }
+                </div> 
             </div>
         </div>
     )

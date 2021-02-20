@@ -16,3 +16,10 @@ module.exports.addInfo = (request, response) => {
         .then(perfume => response.json(perfume))
         .catch(err => response.status(400).json(err));
 }
+
+//All Perfumes
+module.exports.getAllPerfumes = (request, response) => {
+    Perfume.find({})
+        .then(allPerfumes => response.json(allPerfumes))
+        .catch(err => response.json(err))
+}
