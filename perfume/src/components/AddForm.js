@@ -35,13 +35,13 @@ const AddForm = () => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/addInfo', {
             name: name,
-            company: company
-            // description: description,
-            // content: content,
-            // image: image
+            company: company,
+            description: description,
+            content: content,
+            image: image
         })
             .then(res=>console.log(res))
-            // .then(() => navigate("/"))
+            .then(() => navigate("/"))
             .catch(err => {
                 const errorResponse = err.response.data.errors;
                 const errorArray = [];
