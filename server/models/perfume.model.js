@@ -16,7 +16,7 @@ const PerfumeSchema = new mongoose.Schema({
         minLength: [2, "Add Description"]
     },
     content: {
-        type: String 
+        type: String
     },
     image: {
         type: String

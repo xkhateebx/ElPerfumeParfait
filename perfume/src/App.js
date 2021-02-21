@@ -1,7 +1,7 @@
 import './App.css';
 import {Router, Redirect} from "@reach/router";
 import AdminPage from './views/AdminPage';
-import AddForm from './components/AddForm';
+import LandingPage from './views/LandingPage';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         El Perfume Parfait
       </header>
       <Router>
-        {/* <AddForm path="/"/> */}
+        <LandingPage path="/home" />
         <AdminPage path="/"/>
       </Router>
     </div>

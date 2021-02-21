@@ -69,7 +69,7 @@ const AddForm = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <p><Link to="/"> Home </Link></p>
+                    <p><Link to="/home"> Home </Link></p>
                     <p><h3>Add Form&nbsp;</h3>
                         <p>
                         {errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)}
@@ -128,7 +128,7 @@ const AddForm = () => {
                         </div>
                     )
                 }
-                                                )
+                                                    )
                 }
                 </div> 
             </div>
