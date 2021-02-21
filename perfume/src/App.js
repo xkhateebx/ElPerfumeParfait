@@ -2,6 +2,7 @@ import './App.css';
 import {Router, Redirect} from "@reach/router";
 import AdminPage from './views/AdminPage';
 import AddForm from './components/AddForm';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         {/* <AddForm path="/"/> */}
         <AdminPage path="/"/>
+        <AboutUs path='/about'/>
       </Router>
     </div>
   );
