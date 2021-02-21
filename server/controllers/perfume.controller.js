@@ -23,3 +23,20 @@ module.exports.getAllPerfumes = (request, response) => {
         .then(allPerfumes => response.json(allPerfumes))
         .catch(err => response.json(err))
 }
+
+///////
+module.exports.updateLike = (request, response) => {
+    Perfume.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+        .then(like => response.json(like))
+        .catch(err => response.json(err))
+
+}
+
+module.exports.getAllLikes = (request, response) => {
+    Perfume.findOne({_id: request.params.id})
+        .then(allLikes => response.json(allLikes))
+        .catch(err => response.json(err))
+
+}
+
+
