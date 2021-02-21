@@ -23,3 +23,35 @@ module.exports.getAllPerfumes = (request, response) => {
         .then(allPerfumes => response.json(allPerfumes))
         .catch(err => response.json(err))
 }
+
+//Get Perfume By Id
+module.exports.getPerfumeById = (request, response) => {
+    Perfume.findOne({_id:request.params.id})
+        .then(perfume => response.json(perfume))
+        .catch(err => response.json(err))
+}
+
+//Delete an Player
+module.exports.deletePerfume = (request, response) => {
+    Perfume.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
+
+//Likes
+module.exports.updateLike = (request, response) => {
+    Perfume.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+        .then(like => response.json(like))
+        .catch(err => response.json(err))
+
+}
+
+module.exports.getAllLikes = (request, response) => {
+    Perfume.findOne({_id: request.params.id})
+        .then(allLikes => response.json(allLikes))
+        .catch(err => response.json(err))
+
+}
+
+
+
