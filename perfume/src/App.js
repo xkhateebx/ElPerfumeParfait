@@ -1,7 +1,12 @@
 import './App.css';
-import {Router, Redirect} from "@reach/router";
+import {Router} from "@reach/router";
 import AdminPage from './views/AdminPage';
-import AboutUs from './components/AboutUs';
+import AboutUs from './views/AboutUs';
+import Product from './views/Product';
+import Hero from './views/Hero';
+import AboutPage from './views/AboutPage';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -9,10 +14,15 @@ function App() {
       <header className="App-header">
         El Perfume Parfait
       </header>
+      <Navbar/>
       <Router>
-        <AdminPage path="/"/>
-        <AboutUs path='/about'/>
+        <Hero path="/" />
+        <AdminPage path="/admin"/>
+        <Product path="/products" />
+        <AboutUs path='/about'/> 
+        <AboutPage path="/aboutus"/> 
       </Router>
+      <Footer/>
     </div>
   );
 }
