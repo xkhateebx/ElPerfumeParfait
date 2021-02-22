@@ -8,13 +8,13 @@ import AboutPage from './views/AboutPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UpdatePage from './views/UpdatePage';
+import Login from './components/Login/login';
+import SingleProduct from './components/SingleProduct';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        El Perfume Parfait
-      </header>
+
       <Navbar/>
       <Router>
         <Hero path="/" />
@@ -23,6 +23,8 @@ function App() {
         <AboutUs path='/about'/> 
         <AboutPage path="/aboutus"/>
         <UpdatePage path="/update/:id"/> 
+        <Login path="/login" />
+        <SingleProduct path="/products/:id" />
       </Router>
       <Footer/>
     </div>
