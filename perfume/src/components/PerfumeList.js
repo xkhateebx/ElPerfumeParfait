@@ -13,9 +13,10 @@ const PerfumesList = (props) => {
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/allPerfumes')
-            .then(response => setPerfumes((response.data)))
-            .catch(error => console.log("There was an issue: ", error))
-    },[])
+            setPerfumes(perfumes)
+            // .then(response => setPerfumes((response.data)))
+            // .catch(error => console.log("There was an issue: ", error))
+    },[perfumes])
 
     const removeFromDom = (perfumeId,perfumeName) => {
         setPerfumes(perfumes.filter(perfume => perfume._id != perfumeId))

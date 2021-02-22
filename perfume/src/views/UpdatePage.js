@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import UpdateForm from '../components/UpdateForm';
 import { Link, navigate } from '@reach/router';
 import axios from 'axios';
+import PerfumeUpdate from '../components/PerfumeUpdate';
 
 
 export default (props) => {
@@ -25,7 +26,7 @@ export default (props) => {
     return (
         <div>
             <p><Link to="/home"> Home </Link></p>
-            {loaded && (<UpdateForm perfume={perfume}/> )}
+            {loaded && (<PerfumeUpdate perfume={perfume}/> )}
             {/* {loaded && (<UpdateForm onSubmitProp={updatePerfume} perfume={perfume}/> )} */}
         </div>
     )

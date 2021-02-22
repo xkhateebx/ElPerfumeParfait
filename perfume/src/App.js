@@ -12,10 +12,7 @@ import UpdatePage from './views/UpdatePage';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        El Perfume Parfait
-      </header>
-      <Navbar/>
+      <Navbar/>      
       <Router>
         <Hero path="/" />
         <AdminPage path="/admin"/>
