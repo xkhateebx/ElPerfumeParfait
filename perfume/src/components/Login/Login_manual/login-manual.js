@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
+import { navigate } from '@reach/router';
 
+const onSubmitHandler = () =>{
+  navigate('/admin');
+}
 class LoginManual extends Component {
   render() {
     return (
       <div className='half-width white-bg'>
         <h4>Admin Page</h4>
         <br/>
-        <form action="">
+        <form onSubmit={onSubmitHandler}>
           <div className='form-group'>
             <input type="text" className='form-control' placeholder='Email'/>
           </div>

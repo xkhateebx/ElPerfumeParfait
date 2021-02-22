@@ -28,7 +28,7 @@ export default () => {
     // }
     return (
         <div>
-            <p><Link to="/home"> Home </Link></p>
+            <p><Link to="/"> Home </Link></p>
             <div className="top">
             <AddForm />
             </div>

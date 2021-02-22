@@ -33,32 +33,24 @@ export default props => {
     
                   <div className="mb-3">
                     <var className="price h3 text-success">
-                      <span className="currency"  >{perfume.name} </span>
+                      <span className="currency" ><h1>{perfume.name} </h1></span>
                       <span className="num"></span>
                     </var>
                   </div>
                   <dl>
-                    <dt>Description</dt>
-                    <dd>
-                      <p>{perfume.description}</p>
-                    </dd>
                   </dl>
                   <dl className="row">
-                    <dt className="col-sm-3">Perfume Name</dt>
-                    <dd className="col-sm-9">{perfume.name}</dd>
     
                     <dt className="col-sm-3">Company</dt>
                     <dd className="col-sm-9">{perfume.company}</dd>
     
-                    <dt className="col-sm-3">Where to Buy</dt>
-                    <dd className="col-sm-9">{perfume.wheretobuy}</dd>
                   </dl>
     
                   <hr />
                   <div className="row">
                     <div className="col-sm-5">
                       <dl className="dlist-inline">
-                        <dt>eBay: </dt>
+                        <a href={perfume.wheretobuy}><dt>Where to buy <img src={`../images/amazon.png`} width='100px'/> </dt></a>
                         <dd className="pl-2">
                           <span className="form-check-label"></span>
                         </dd>
@@ -66,7 +58,7 @@ export default props => {
                     </div>
                     <div className="col-sm-7">
                       <dl className="dlist-inline">
-                        <dt>Amazon: </dt>
+                         <a href={perfume.wheretobuy}><dt> <img src={`../images/ebay.png`} width='100px'/> </dt></a>
                         <dd>
                           <span className="form-check-label"></span>
                         </dd>
@@ -75,13 +67,11 @@ export default props => {
                   </div>
                   <hr />
  
-                  <button
-                    className=
-                    'btn  btn-outline-secondary'
-                    
-                  >
-                    <i className="fa fa-shopping-cart"></i>'Like'
+                  <button className='btn  btn-outline-secondary'>
+                    <i className="fa fa-shopping-cart"></i>Like
                   </button>
+                  <h2>{perfume.description}</h2>
+
                 </article>
               </aside>
             </div>

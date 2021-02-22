@@ -30,6 +30,8 @@ const AddForm = () => {
     const [content, setContent] = useState("");
     const [image, setImage] = useState("");
     const [wheretobuy, setWheretoBuy] = useState("");
+    const [wheretobuytwo, setWheretoBuytwo] = useState("");
+
 
     const [errors, setErrors] = useState([]);
 
@@ -58,7 +60,8 @@ const AddForm = () => {
             description: description,
             content: content,
             image: image,
-            wheretobuy: wheretobuy
+            wheretobuy: wheretobuy,
+            wheretobuytwo: wheretobuytwo
         })
             // .then((newP) => {
             //     let test = [...perfume]

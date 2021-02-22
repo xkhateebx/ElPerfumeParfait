@@ -1,10 +1,12 @@
 import Reviews from '../components/Reviews';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import AboutUs from '../views/AboutUs'
 
 
 function Review() {
     return (
       <Wrapper>
+        <AboutUs/>
         <main>
         <section className='container'>
           <div className='title'>
