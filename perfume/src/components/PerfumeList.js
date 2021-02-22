@@ -2,10 +2,14 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import DeleteButton from '../components/DeleteButton';
+import UpdateButton from '../components/UpdateButton';
 
-
-const PerfumesList = () => {
+const PerfumesList = (props) => {
     const [perfumes, setPerfumes] = useState([])
+    
+    const { id } = props;
+    const [perfume, setPerfume] = useState({});
+
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/allPerfumes')
@@ -13,39 +17,42 @@ const PerfumesList = () => {
             .catch(error => console.log("There was an issue: ", error))
     },[])
 
-    const removeFromDom = (playerId,playerName) => {
-        setPlayers(players.filter(player => player._id != playerId))
-        setPlayers(players.filter(player => player.name != playerName))
-        alert(`Are you sure you want to remove "${playerName}?"`);
+    const removeFromDom = (perfumeId,perfumeName) => {
+        setPerfumes(perfumes.filter(perfume => perfume._id != perfumeId))
+        setPerfumes(perfumes.filter(perfume => perfume.name != perfumeName))
+        alert(`Are you sure you want to remove "${perfumeName}?"`);
+    }
+    const updatePerfume = perfume => {
+        axios.put('http://localhost:8000/api/perfume/' + id, perfume)
+            .then(res => console.log(res));
     }
 
 
     return (
         <div className="container">
-            <div className="col-12">
-                <p>ManagePlayers | <Link to="/status/game">Manage Player Status</Link></p>
-            </div>
-            <div className="col-12">
-                <p>List | <Link to="/addplayer"> Add Player </Link></p>
-            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Player Name</th>
-                    <th scope="col">Prefered Position</th>
+                    <th scope="col">Perfume</th>
+                    <th scope="col">Brand</th>
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                {players.length > 0 && players.map((item,index)=>
+                {perfumes.length > 0 && perfumes.map((item,index)=>
                 {
                     return(
                 <tbody>
                     <tr>
                     <th scope="row">{item._id}</th>
                     <td>{item.name}</td>
-                    <td>{item.position}</td>
-                    <td><DeleteButton playerId={item._id} successCallback={()=>removeFromDom(item._id,item.name)} /></td>
+                    <td>{item.company}</td>
+                    <td>
+                        <Link to={"/update/"+item._id}>
+                            <UpdateButton perfumeId={item._id} successCallback={updatePerfume}/>
+                        </Link>
+                        <DeleteButton perfumeId={item._id} successCallback={()=>removeFromDom(item._id,item.name)} />
+                    </td>
                     </tr>
                 </tbody>
                         )

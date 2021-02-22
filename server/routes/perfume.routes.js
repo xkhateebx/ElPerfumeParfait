@@ -8,9 +8,9 @@ module.exports = function(app){
     app.get('/api/allPerfumes', PerfumeController.getAllPerfumes);
     app.get('/api/perfume/:id', PerfumeController.getPerfumeById);
     app.delete('/api/perfume/:id', PerfumeController.deletePerfume);
+    app.put('/api/perfume/:id', PerfumeController.updatePerfume);
 
     // app.post('/api/author', AuthorController.createAuthor);
-    // app.put('/api/author/:id', AuthorController.updateAuthor);
     app.put('/api/updateLike/:id',PerfumeController.updateLike);
     app.get('/api/getAllLikes/:id',PerfumeController.getAllLikes);
 }

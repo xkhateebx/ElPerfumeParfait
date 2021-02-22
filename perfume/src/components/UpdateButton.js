@@ -2,8 +2,6 @@ import React from 'react'
 import axios from 'axios';
 import {Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 export default props => {
     const { perfumeId, successCallback } = props;
@@ -20,20 +18,15 @@ export default props => {
     const classes = useStyles();
     
 
-    const deletePerfume = e => {
-        axios.delete('http://localhost:8000/api/perfume/' + perfumeId)
+    const updatePerfume = e => {
+        axios.put('http://localhost:8000/api/perfume/' + perfumeId)
             .then(res=>{
                 successCallback();
             })
     }
     return (
-        <>
-        {/* <Button onClick={deletePerfume} variant="outlined" size="meduim" color="primary" className={classes.margin}>
-            Delete
-        </Button> */}
-        <IconButton onClick={deletePerfume} aria-label="delete" className={classes.margin}>
-        <DeleteIcon fontSize="large" />
-        </IconButton>
-        </>
+        <Button onClick={updatePerfume} variant="outlined" size="meduim" color="primary" className={classes.margin}>
+            Update
+        </Button>
     )
 }

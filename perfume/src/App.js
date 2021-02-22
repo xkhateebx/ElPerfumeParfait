@@ -7,6 +7,7 @@ import Hero from './views/Hero';
 import AboutPage from './views/AboutPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import UpdatePage from './views/UpdatePage';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <AdminPage path="/admin"/>
         <Product path="/products" />
         <AboutUs path='/about'/> 
-        <AboutPage path="/aboutus"/> 
+        <AboutPage path="/aboutus"/>
+        <UpdatePage path="/update/:id"/> 
       </Router>
       <Footer/>
     </div>

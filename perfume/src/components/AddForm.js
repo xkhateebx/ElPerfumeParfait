@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+import PerfumeList from '../components/PerfumeList';
 
 import {
     Paper,
@@ -32,13 +33,19 @@ const AddForm = () => {
 
     const [errors, setErrors] = useState([]);
 
+    //To display list of all products near the add form
+    const [perfume, setPerfume] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
-    //Get All PErfumes
-    const [perfumes, setPerfumes] = useState([])
+    // //Get All Perfumes
+    // const [perfumes, setPerfumes] = useState([])
     
     useEffect( () => {
         axios.get('http://localhost:8000/api/allPerfumes')
-            .then(response => setPerfumes((response.data)))
+            .then(response => {
+                setPerfume((response.data));
+                setLoaded(true);
+            })
             .catch(error => console.log("There was an issue: ", error))
     },[])
     //////////
@@ -53,8 +60,12 @@ const AddForm = () => {
             image: image,
             wheretobuy: wheretobuy
         })
-            .then(res=>console.log(res))
-            .then(() => navigate("/"))
+            // .then((newP) => {
+            //     let test = [...perfume]
+            //     test.push(newP.data)
+            //     setPerfume(test)
+            //     })
+            .then(() => navigate("/admin"))
             .catch(err => {
                 const errorResponse = err.response.data.errors;
                 const errorArray = [];
@@ -69,7 +80,6 @@ const AddForm = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <p><Link to="/home"> Home </Link></p>
                     <p><h3>Add Form&nbsp;</h3>
                         <p>
                         {errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)}
@@ -104,7 +114,7 @@ const AddForm = () => {
                                 <InputLabel>Where to Buy</InputLabel>
                                 <OutlinedInput type="text" onChange={(e)=>setWheretoBuy(e.target.value)} value={wheretobuy} />
                             </FormControl>
-                            <Button onClick={()=>navigate("/")} className="btn btn-secondary btn-sm">
+                            <Button onClick={()=>navigate("/admin")} className="btn btn-secondary btn-sm">
                                 Cancel
                             </Button>
                             <Button type="submit" variant="contained" color="primary" style={{marginLeft: "10px"}}>
@@ -114,23 +124,6 @@ const AddForm = () => {
                     </Paper>
                     </center>
                 </div>
-                <div className="col-12">
-                {perfumes.length > 0 && perfumes.map((item,index)=>
-                {
-                    return(
-                        <div key={index}>
-                            <p>{item._id}</p>
-                            <p>{item.name}</p>
-                            <p>{item.company}</p>
-                            <p>{item.description}</p>
-                            <p>{item.content}</p>
-                            <p><img src={`../images/${item.image}.jpg`} alt={item.image} height="300px" width="300px"/></p> 
-                        </div>
-                    )
-                }
-                                                    )
-                }
-                </div> 
             </div>
         </div>
     )

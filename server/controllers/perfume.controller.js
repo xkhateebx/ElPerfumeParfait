@@ -30,8 +30,14 @@ module.exports.getPerfumeById = (request, response) => {
         .then(perfume => response.json(perfume))
         .catch(err => response.json(err))
 }
+//Update Perfume
+module.exports.updatePerfume = (request, response) => {
+    Perfume.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+            .then(updatedPerfume => response.json(updatedPerfume))
+            .catch(err => response.json(err))
+    }
 
-//Delete an Player
+//Delete an Perfume
 module.exports.deletePerfume = (request, response) => {
     Perfume.deleteOne({ _id: request.params.id })
         .then(deleteConfirmation => response.json(deleteConfirmation))
