@@ -7,6 +7,10 @@
   padding:10px;
   
 }
+.search{
+  padding:10px;
+  border-radius: 10px;
+}
 .cont{
   display: flex;
 }

@@ -11,6 +11,7 @@ import UpdatePage from './views/UpdatePage';
 import Login from './components/Login/login';
 import SingleProduct from './components/SingleProduct';
 // import Profile from './components/Profile';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Navbar/>
       <Router>
         {/* <Profile path='/prof'/> */}
+        <Search path='/search'/>
         <Hero path="/" />
         <AdminPage path="/admin"/>
         <Product path="/products" />
