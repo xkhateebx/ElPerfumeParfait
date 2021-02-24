@@ -33,6 +33,7 @@ module.exports.getPerfumeById = (request, response) => {
 //Update Perfume
 module.exports.updatePerfume = (request, response) => {
     Perfume.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+            .then(res => console.log(response.json(updatedPerfume)))
             .then(updatedPerfume => response.json(updatedPerfume))
             .catch(err => response.json(err))
     }

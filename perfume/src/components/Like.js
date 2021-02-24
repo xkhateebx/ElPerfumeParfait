@@ -29,7 +29,6 @@ const Like = () => {
                     return(
                         <div key={index}>
                             <p>{item.like}</p>
-                            
                         </div>
                     )
                 }

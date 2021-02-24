@@ -30,6 +30,7 @@ const UpdateForm = (props) => {
     const [content, setContent] = useState("");
     const [image, setImage] = useState("");
     const [wheretobuy, setWheretoBuy] = useState("");
+    
     const [errors, setErrors] = useState([])
 
 
@@ -77,23 +78,23 @@ const UpdateForm = (props) => {
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Company</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setCompany(e.target.value)} value={props.perfume.company} />
+                            <OutlinedInput type="text"onChange={(e)=>setCompany(e.target.value)} value={company} />
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Description</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setDescription(e.target.value)} value={props.perfume.description}/>
+                            <OutlinedInput type="text"onChange={(e)=>setDescription(e.target.value)} value={description}/>
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Perfume Content</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setContent(e.target.value)} value={props.perfume.content} />
+                            <OutlinedInput type="text"onChange={(e)=>setContent(e.target.value)} value={content} />
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Image</InputLabel>
-                            <OutlinedInput type="text" onChange={(e)=>setImage(e.target.value)} value={props.perfume.image} />
+                            <OutlinedInput type="text" onChange={(e)=>setImage(e.target.value)} value={image} />
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Where to Buy</InputLabel>
-                            <OutlinedInput type="text" onChange={(e)=>setWheretoBuy(e.target.value)} value={props.perfume.wheretobuy} />
+                            <OutlinedInput type="text" onChange={(e)=>setWheretoBuy(e.target.value)} value={wheretobuy} />
                         </FormControl>
                         <Button onClick={()=>navigate("/admin")} className="btn btn-secondary btn-sm">
                             Cancel

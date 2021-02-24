@@ -15,14 +15,14 @@ const [perfumes, setPerfumes] = useState([])
     },[])
 
         return (
-          
 <Wrapper  >
+  
                 {perfumes.length > 0 && perfumes.map((item,index)=>
                 {
                     return(
                       <div key={index} >
                         
-                        <div className='container'   >
+                        <div className='container'>
                           <center>
                           <img src={`../images/${item.image}.jpg`} alt={item.image}/>
                           </center>
@@ -37,18 +37,10 @@ const [perfumes, setPerfumes] = useState([])
                         </div>
                         
                     )
-                    
-                    
                 }
-                
-                
                                                 )
-                                                
                 }
-                
-                
-                </Wrapper>
-                
+</Wrapper>
     )
     
 }
@@ -58,6 +50,7 @@ const Wrapper = styled.article`
     position: relative;
     background: var(--clr-white);
     border-radius: var(--radius);
+    margin-top:10px;
   }
   img {
     width: 230px;

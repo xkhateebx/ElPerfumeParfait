@@ -24,13 +24,14 @@ const styles = {
 
 
 export default props => {
-    const { initialName, initialCompany,initialDescription,initialContent,initialImage,initialWheretoBuy,onSubmitProp } = props;
+    const { initialName, initialCompany,initialDescription,initialContent,initialImage,initialWheretoBuy,initialWheretoBuy2,onSubmitProp } = props;
     const [name,setName] = useState(initialName);
     const [company,setCompany] = useState(initialCompany);
     const [description, setDescription] = useState(initialDescription);
     const [content, setContent] = useState(initialContent);
     const [image, setImage] = useState(initialImage);
     const [wheretobuy, setWheretoBuy] = useState(initialWheretoBuy);
+    const [wheretobuy2, setWheretoBuy2] = useState(initialWheretoBuy2);
 
     const [errors, setErrors] = useState([]);
 
@@ -76,6 +77,10 @@ export default props => {
                             <FormControl variant="outlined" style={styles.input}>
                                 <InputLabel>Where to Buy</InputLabel>
                                 <OutlinedInput type="text" name="wheretobuy" onChange={(e)=>setWheretoBuy(e.target.value)} value={wheretobuy} />
+                            </FormControl>
+                            <FormControl variant="outlined" style={styles.input}>
+                                <InputLabel>Where to Buy (Option 2)</InputLabel>
+                                <OutlinedInput type="text" name="wheretobuy2" onChange={(e)=>setWheretoBuy2(e.target.value)} value={wheretobuy2} />
                             </FormControl>
                             <Button onClick={()=>navigate("/admin")} className="btn btn-secondary btn-sm">
                                 Cancel

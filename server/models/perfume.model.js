@@ -16,19 +16,31 @@ const PerfumeSchema = new mongoose.Schema({
         minLength: [2, "Add Description"]
     },
     content: {
-        type: String
+        type: String,
+        minLength: [2, "Add Contents"]
     },
     image: {
-        type: String
+        type: String,
+        minLength: [2, "Add Image Name"]
     },
     wheretobuy: {
-        type: String
+        type: String,
+        minLength: [2, "Add Links"]
+    },
+    wheretobuy2: {
+        type: String,
+        minLength: [2, "Add Links"]
     },
     comments: [{
         type: Schema.Types.ObjectId,
+        minLength: [2, "Comment Must have at least 2 Characters"],
         ref: "Comment"
     }],
-    likes: {type :Number}
+    
+    likes: {
+        type :Number,
+        max: 1
+    }
 }, { timestamps: true });
 
 
