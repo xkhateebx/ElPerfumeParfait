@@ -13,10 +13,10 @@ module.exports = function(app){
     app.delete('/api/perfume/:id', PerfumeController.deletePerfume);
     app.put('/api/perfume/:id', PerfumeController.updatePerfume);
 
-    // app.post('/api/author', AuthorController.createAuthor);
+    // // app.post('/api/author', AuthorController.createAuthor);
+    app.get('/api/getAllLikes/:id',PerfumeController.getAllLikesforItem);
     app.put('/api/updateLike/:id',PerfumeController.updateLike);
-    app.get('/api/getAllLikes/:id',PerfumeController.getAllLikes);
-
+    // app.get('/api/getAllLikes/:id',PerfumeController.getAllLikes);
 
     // login & register
     app.post("/api/register", UserController.register);

@@ -32,6 +32,7 @@ function App() {
         <SingleProduct path="/products/:id" />
         <TestAdminPage path="/test" />
       </Router>
+      
       <Footer/>
     </div>
   );

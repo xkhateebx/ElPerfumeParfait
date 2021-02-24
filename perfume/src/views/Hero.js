@@ -6,9 +6,6 @@ import heroBcg2 from '../assests/hero-bcg-2.jpeg'
 import ServicesPage from './ServicesPage';
 import Search from '../components/Search';
 
-
-
-
 const Hero = () => {
   
   return (

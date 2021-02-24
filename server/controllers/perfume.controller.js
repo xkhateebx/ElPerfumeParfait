@@ -47,17 +47,16 @@ module.exports.deletePerfume = (request, response) => {
 
 //Likes
 module.exports.updateLike = (request, response) => {
-    Perfume.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+    const { likes } = request.body;
+    Perfume.findOneAndUpdate({_id: request.params.id}, {likes}, {new:true})
         .then(like => response.json(like))
         .catch(err => response.json(err))
-
 }
 
-module.exports.getAllLikes = (request, response) => {
+module.exports.getAllLikesforItem = (request, response) => {
     Perfume.findOne({_id: request.params.id})
         .then(allLikes => response.json(allLikes))
         .catch(err => response.json(err))
-
 }
 
 

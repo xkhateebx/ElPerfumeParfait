@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react"
-import axios from 'axios';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+
 const RegisterForm = props => {
     const { onSubmitProp,changeView } = props;
     const [firstName, setFirstName] = useState("");
@@ -21,44 +22,69 @@ const RegisterForm = props => {
         }
     }, [])
     return(
-        <div className="container" style={{border:'1px solid black',height:'200px'}}>
-            <div className="row">
-                <div className="col-12">
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-6">
-                    <form onSubmit={ onSubmit }>
-                    <div className="form-group">
-                            <label>First Name:</label>
-                            <input onChange={(e)=>setFirstName(e.target.value)} value ={firstName} type="text" className="form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <label>Last Name:</label>
-                            <input onChange={(e)=>setLastName(e.target.value)} value ={lastName} type="text" className="form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <label>email:</label>
-                            <input onChange={(e)=>setEmail(e.target.value)} value ={email} type="text" className="form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <label>Password:</label>
-                            <input onChange={(e)=>setPassword(e.target.value)} value ={password} type="text" className="form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <label>Password Confirm:</label>
-                            <input onChange={(e)=>setConfirmPassword(e.target.value)} value ={confirmPassword} type="text" className="form-control"/>
-                        </div>
-
-                        <div className="form-group text-right">
-                        <a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>have an account?</a>
-                            <button className="btn btn-primary btn-sm" style={{marginLeft: "10px"}}>Submit</button>
-                        </div>
-                    </form>
-                    {errors.map((err, index) => <p key={index} style={{color:"red"}}>{err}</p>)}
-                </div>
-            </div>
-        </div>
-    )
-}
+        <MDBContainer>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBCard>
+              <MDBCardBody>
+                <form onSubmit={ onSubmit } >
+                  <p className="h4 text-center py-4">Sign up</p>
+                  <div className="grey-text">
+                    <MDBInput onChange={(e)=>setFirstName(e.target.value)} value ={firstName}
+                      label="First Name"
+                      icon="user"
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput onChange={(e)=>setLastName(e.target.value)} value ={lastName}
+                      label="Last Name"
+                      icon="user"
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput  onChange={(e)=>setEmail(e.target.value)} value ={email}
+                      label="Your email"
+                      icon="envelope"
+                      group
+                      type="email"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput onChange={(e)=>setPassword(e.target.value)} value ={password}
+                      label="Password"
+                      icon="lock"
+                      group
+                      type="password"
+                      validate
+                    />
+                    <MDBInput onChange={(e)=>setConfirmPassword(e.target.value)} value ={confirmPassword}
+                      label="Confirm Password"
+                      icon="lock"
+                      group
+                      type="password"
+                      validate
+                    />
+                  </div>
+                          <a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>have an account?</a>
+                  <div className="text-center py-4 mt-3">
+                    <MDBBtn color="cyan" type="submit">
+                      Register
+                    </MDBBtn>
+                  </div>
+                </form>
+                {errors.map((err, index) => <p key={index} style={{color:"red"}}>{err}</p>)}
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    );
+};
 export default RegisterForm;

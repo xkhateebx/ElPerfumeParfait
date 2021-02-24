@@ -7,30 +7,39 @@ import { Redirect } from 'react-router-dom';
 import _ from 'lodash';
 import ReactImageMagnify from 'react-image-magnify';
 import '../../src/components/style.css';
-
-
+import LikeButton from '../components/LikeButton';
 
 export default props => {
     const [perfume, setPerfume] = useState({})
-    
+    const [likes, setLikes] = useState(0)
+
+    //Array of All Perfumes
+    const [perfumes, setPerfumes] = useState([])
+
     useEffect(() => {
         axios.get("http://localhost:8000/api/perfume/" + props.id)
-            .then(res => setPerfume(res.data))
+            .then(res => {
+              setPerfume(res.data);
+              setLikes(res.data);
+            })
     }, [])
-    
+
+    const addLikes = (perfumeId,perfumeName) => {
+      setLikes(perfumes.filter(perfume => perfume._id == perfumeId))
+      setLikes(perfumes.filter(perfume => perfume.name == perfumeName))
+      alert(`You liked "${perfumeName}"`);
+  }
     return (
           <div className="card mb-3">
             <div className="row no-gutters">
               <aside className="col-sm-5 border-right">
                 <div>
                 <img src={`../images/${perfume.image}.jpg`} alt={perfume.image} width="65%"/>
-            
                 </div>
               </aside>
               <aside className="col-sm-7">
                 <article className="p-5">
                   <h2 className="title mb-2"></h2>
-    
                   <div className="mb-3">
                     <var className="price h3 text-success">
                       <span className="currency" ><h1>{perfume.name} </h1></span>
@@ -40,12 +49,9 @@ export default props => {
                   <dl>
                   </dl>
                   <dl className="row">
-    
                     <dt className="col-sm-3">Company</dt>
                     <dd className="col-sm-9">{perfume.company}</dd>
-    
                   </dl>
-    
                   <hr />
                   <div className="row">
                     <div className="col-sm-5">
@@ -66,12 +72,11 @@ export default props => {
                     </div>
                   </div>
                   <hr />
- 
-                  <button className='btn  btn-outline-secondary'>
-                    <i className="fa fa-shopping-cart"></i>Like
-                  </button>
                   <h2>{perfume.description}</h2>
-
+                  <LikeButton perfumeId={perfume._id} successCallback={()=>addLikes(perfume._id,perfume.name)} />
+                  From Data Base
+                  <p>Number of Likes: {perfume.likes}</p>
+                  ---------
                 </article>
               </aside>
             </div>
@@ -79,3 +84,4 @@ export default props => {
         
       );
     };
+
