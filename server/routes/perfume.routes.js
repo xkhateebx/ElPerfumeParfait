@@ -21,4 +21,6 @@ module.exports = function(app){
     app.post("/api/login", UserController.login);
     app.get("/api/logout", UserController.logout);
     app.get("/api/user/",authenticate, UserController.getSingleUserById);
+    //comment
+    app.put('/api/perfume/:id', PerfumeController.addComment);
 }

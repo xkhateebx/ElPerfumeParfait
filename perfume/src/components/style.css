@@ -61,3 +61,33 @@
 .heart{
   color: #f14444;
 }
+
+
+.login-form-overlay {
+  margin-top: 10px;
+  background-color: white;
+  min-height: 50vh;
+  width: 50vh;
+  padding: 8rem 0;
+}
+
+.login-form {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 0.75rem;
+  height: 100%;
+}
+
+.reg-form-overlay {
+  margin-top: 10px;
+
+  background-color: white;
+  min-height: 50vh;
+  width: 50vh;
+  padding: 1rem 0;
+}
+
+.reg-form {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 0.75rem;
+  height: 100%;
+}

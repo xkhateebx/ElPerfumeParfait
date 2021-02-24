@@ -33,7 +33,6 @@ function App() {
         <AboutPage path="/aboutus"/>
         <UpdatePage path="/update/:id"/> 
         <SingleProduct path="/products/:id" />
-
         {/* Testing Components */}
         <TestAdminPage path="/test" />
         <TestLogin path="/loginTest" />

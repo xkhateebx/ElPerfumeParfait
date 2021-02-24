@@ -60,5 +60,15 @@ module.exports.getAllLikesforItem = (request, response) => {
         .catch(err => response.json(err))
 }
 
-
+//comment
+module.exports.addComment = async (request, response) => {
+    const perfume = await Perfume.findOne({ _id: request.params.id });
+  
+    if (perfume == null) {
+      return response.sendStatus(400);
+    }
+  
+    perfume.comments.push(request.body);
+    perfume.save().then(perfume => response.json(perfume));
+  };
 

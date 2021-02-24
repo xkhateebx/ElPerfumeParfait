@@ -1,6 +1,10 @@
 import React, { useState,useEffect } from "react"
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
-
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import FormGroup from '@material-ui/core/FormGroup';
+import Button from '@material-ui/core/Button';
+import '../components/style.css';
 const RegisterForm = props => {
     const { onSubmitProp,changeView } = props;
     const [firstName, setFirstName] = useState("");
@@ -22,69 +26,58 @@ const RegisterForm = props => {
         }
     }, [])
     return(
-        <MDBContainer>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBCard>
-              <MDBCardBody>
-                <form onSubmit={ onSubmit } >
-                  <p className="h4 text-center py-4">Sign up</p>
-                  <div className="grey-text">
-                    <MDBInput onChange={(e)=>setFirstName(e.target.value)} value ={firstName}
-                      label="First Name"
-                      icon="user"
-                      group
-                      type="text"
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput onChange={(e)=>setLastName(e.target.value)} value ={lastName}
-                      label="Last Name"
-                      icon="user"
-                      group
-                      type="text"
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput  onChange={(e)=>setEmail(e.target.value)} value ={email}
-                      label="Your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput onChange={(e)=>setPassword(e.target.value)} value ={password}
-                      label="Password"
-                      icon="lock"
-                      group
-                      type="password"
-                      validate
-                    />
-                    <MDBInput onChange={(e)=>setConfirmPassword(e.target.value)} value ={confirmPassword}
-                      label="Confirm Password"
-                      icon="lock"
-                      group
-                      type="password"
-                      validate
-                    />
-                  </div>
-                          <a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>have an account?</a>
-                  <div className="text-center py-4 mt-3">
-                    <MDBBtn color="cyan" type="submit">
-                      Register
-                    </MDBBtn>
-                  </div>
-                </form>
-                {errors.map((err, index) => <p key={index} style={{color:"red"}}>{err}</p>)}
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <Box component="div" className="reg-form-bg">
+      <Box component="div" className="reg-form-overlay">
+        <Container maxWidth="sm" className="reg-form py-5">
+
+          <form
+            noValidate
+            autoComplete="off"
+            className="w-75 mx-auto py-5"
+            onSubmit={ onSubmit }
+          >
+            <h3 className="font-weight-bold mb-4">Sign Up</h3>
+            <FormGroup className="mb-4">
+              <TextField id="firstName" label="First Name" onChange={(e)=>setFirstName(e.target.value)} value ={firstName} />
+            </FormGroup>
+            <FormGroup className="mb-4">
+              <TextField id="lastName" label="Last Name" onChange={(e)=>setLastName(e.target.value)} value ={lastName} />
+            </FormGroup>
+            <FormGroup className="mb-4">
+              <TextField id="email" label="Email" onChange={(e)=>setEmail(e.target.value)} value ={email} />
+            </FormGroup>
+            <FormGroup className="mb-4">
+              <TextField
+                type="password"
+                id="password"
+                label="Password"
+                onChange={(e)=>setPassword(e.target.value)} value ={password}
+              />
+            </FormGroup>
+            <FormGroup className="mb-4">
+              <TextField
+                type="password"
+                id="password"
+                label="Confirm Password"
+                onChange={(e)=>setConfirmPassword(e.target.value)} value ={confirmPassword}
+              />
+            </FormGroup>
+            <Box component="div" className="mb-5">
+              <span className="text-muted"><a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>have an account?</a> </span>
+            </Box>
+            <Box component="div" className="text-right">
+              <center>
+              <Button type="submit" variant="outlined" color="secondary" className="px-5 py-2">
+                Register
+              </Button>
+              </center>
+            </Box>
+          </form>
+		  {errors.map((err, index) => <p key={index} style={{color:"red"}}>{err}</p>)}
+        </Container>
+      </Box>
+    </Box>
+
     );
 };
 export default RegisterForm;
