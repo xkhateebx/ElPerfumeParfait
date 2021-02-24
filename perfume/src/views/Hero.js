@@ -4,8 +4,15 @@ import { Link } from '@reach/router';
 import heroBcg from '../assests/hero-bcg.jpeg'
 import heroBcg2 from '../assests/hero-bcg-2.jpeg'
 import ServicesPage from './ServicesPage';
+import Search from '../components/Search';
+
+
+
+
 const Hero = () => {
+  
   return (
+    <>
     <Wrapper className='section-center'>
       
       <article className='content'>
@@ -23,11 +30,15 @@ const Hero = () => {
       </article>
       <article className='img-container'>
         <img src={heroBcg} alt='nice table' className='main-img' />
-        <img src={heroBcg2} alt='person working' className='accent-img' />
-        
+        <img src={heroBcg2} alt='person working' className='accent-img' />      
       </article>
-      
     </Wrapper>
+    <hr></hr>
+      <div>
+        <h1>Search for Perfumes!</h1>
+      <Search/>
+      </div>
+      </>
     
   )
 }

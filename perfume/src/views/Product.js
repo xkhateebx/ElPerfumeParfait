@@ -22,11 +22,11 @@ const [perfumes, setPerfumes] = useState([])
                     return(
                       <div key={index} >
                         
-                        <div className='container'>
+                        <div className='container'   >
                           <center>
                           <img src={`../images/${item.image}.jpg`} alt={item.image}/>
                           </center>
-                          <Link to={"/products/"+item._id} className='link'>
+                          <Link to={"/detail/"+item._id} className='link'>
                             <FaSearch />
                           </Link>
                         </div>
