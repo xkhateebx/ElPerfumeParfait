@@ -1,4 +1,7 @@
 const PerfumeController = require('../controllers/perfume.controller');
+const UserController = require('../controllers/user.controller');
+const { authenticate } = require('../config/jwt.config');
+
 // const LikeController = require('../controllers/like.controller');
 
 module.exports = function(app){
@@ -10,7 +13,12 @@ module.exports = function(app){
     app.delete('/api/perfume/:id', PerfumeController.deletePerfume);
     app.put('/api/perfume/:id', PerfumeController.updatePerfume);
 
-    // app.post('/api/author', AuthorController.createAuthor);
     // app.get('/api/getAllLikes/:id',PerfumeController.getAllLikesforItem);
     app.put('/api/updateLike/:id',PerfumeController.updateLike);
+
+    // login & register
+    app.post("/api/register", UserController.register);
+    app.post("/api/login", UserController.login);
+    app.get("/api/logout", UserController.logout);
+    app.get("/api/user/",authenticate, UserController.getSingleUserById);
 }

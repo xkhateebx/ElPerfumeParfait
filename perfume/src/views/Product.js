@@ -20,7 +20,7 @@ const [perfumes, setPerfumes] = useState([])
                 {
                     return(
                       <div key={index} >
-                        <div className='container'   >
+                        <div className='container'>
                           <center>
                           <img src={`../images/${item.image}.jpg`} alt={item.image}/>
                           </center>
@@ -28,13 +28,11 @@ const [perfumes, setPerfumes] = useState([])
                             <FaSearch />
                           </Link>
                         </div>
-                        <div></div>
                         <footer>
                           <h3>{item.name}</h3>
                           <p>{item.company}</p>
                         </footer>
                         </div>
-                        
                     )
                 }
                                                 )

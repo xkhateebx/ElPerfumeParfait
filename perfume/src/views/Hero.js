@@ -12,7 +12,7 @@ const Hero = () => {
     <>
     <Wrapper className='section-center'>
       
-      <article className='content'>
+      <article className='contentHome'>
         <h1>
         El Perfume <br />
         Parfait

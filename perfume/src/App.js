@@ -8,13 +8,14 @@ import AboutPage from './views/AboutPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UpdatePage from './views/UpdatePage';
-import Login from './components/Login/login';
 import SingleProduct from './views/SingleProduct';
 import TestAdminPage from './views/TestAdminPage';
 // import Profile from './components/Profile';
 import Search from './components/Search';
 import TestLogin from './components/TestLogin';
 import ProductTest from '../src/views/ProductTest';
+import { Main } from './views/Main';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
         <AdminPage path="/admin"/>
         <Product path="/products" />
         <AboutUs path='/about'/> 
+        <Main path="/register" />
         <AboutPage path="/aboutus"/>
         <UpdatePage path="/update/:id"/> 
-        <Login path="/login" />
         <SingleProduct path="/products/:id" />
 
         {/* Testing Components */}
@@ -39,6 +40,7 @@ function App() {
         <ProductTest path="testest"/>
         
       </Router>
+      <ScrollToTop />
       <Footer/>
     </div>
   );

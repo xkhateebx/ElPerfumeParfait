@@ -57,7 +57,7 @@ const PerfumeList = (props) => {
   return (
     <>
       <p>
-        <h1><Link to={"/products/"+id}>{name}</Link><img src={`../images/${image}.jpg`} width='10%'  height='10%'/></h1>
+        <h2><Link to={"/products/"+id}>{name}</Link><img src={`../images/${image}.jpg`} width='10%'  height='10%'/></h2>
         <hr></hr>
       </p>
     </>
