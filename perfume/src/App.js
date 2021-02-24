@@ -13,6 +13,8 @@ import SingleProduct from './views/SingleProduct';
 import TestAdminPage from './views/TestAdminPage';
 // import Profile from './components/Profile';
 import Search from './components/Search';
+import TestLogin from './components/TestLogin';
+import ProductTest from '../src/views/ProductTest';
 
 function App() {
   return (
@@ -30,7 +32,12 @@ function App() {
         <UpdatePage path="/update/:id"/> 
         <Login path="/login" />
         <SingleProduct path="/products/:id" />
+
+        {/* Testing Components */}
         <TestAdminPage path="/test" />
+        <TestLogin path="/loginTest" />
+        <ProductTest path="testest"/>
+        
       </Router>
       <Footer/>
     </div>

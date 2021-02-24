@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import { Link } from '@reach/router';
 import '../App.css';
 
 
@@ -51,12 +52,12 @@ function Search() {
 }
 
 const PerfumeList = (props) => {
-  const { name, image } = props;
+  const { id, name, image } = props;
 
   return (
     <>
       <p>
-        <h1>{name} <img src={`../images/${image}.jpg`} width='10%'  height='10%'/></h1>
+        <h1><Link to={"/products/"+id}>{name}</Link><img src={`../images/${image}.jpg`} width='10%'  height='10%'/></h1>
         <hr></hr>
       </p>
     </>

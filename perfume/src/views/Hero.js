@@ -31,10 +31,6 @@ const Hero = () => {
       </article>
     </Wrapper>
     <hr></hr>
-      <div>
-        <h1>Search for Perfumes!</h1>
-      <Search/>
-      </div>
       </>
     
   )

@@ -5,43 +5,18 @@ import styled from 'styled-components'
 const LikeButton = (props) => {
     const { perfumeId } =props;
     const [likes,setLikes] = useState(0);
-    const [, setPerfume] = useState({})
+    const [perfume, setPerfume] = useState({})
     
     //Array of All Perfumes
-    const [] = useState([])
-
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/perfume/" + perfumeId)
-            .then(res => {
-                setPerfume(res.data);
-                console.log(res.data ['likes']);
-                //setLikes(res.data.likes);
-            })
-    }, [])
-
-    const onLikeHandler = (e) =>{
-        e.preventDefault();
-        axios.put('http://localhost:8000/api/updateLike/'+ perfumeId,{
-            likes,
-        })
-        .then(res=> {
-            console.log(res)
-            // onSubmitProp({likes});
-            // successCallback();
-        
-            //console.log(likesP)
-            setLikes(likes +1);
-        })
-        .catch(error => console.log("There was an issue: ", error))
-    }
+    const [perfumes, setPerfumes] = useState([])
+    
     return (
         <div>
             {/* <form onSubmit={ onLikeHandler }> */}
                 <Wrapper >
-                <button onClick={onLikeHandler} className='btn hero-btn'>
+                <button onClick={props.addLikesHandler} className='btn hero-btn'>
                 <i className="fa fa-shopping-cart">Like</i>
                 </button>
-                <p> Number of Likes: {likes} </p>
                 </Wrapper>
             {/* </form> */}
         </div>

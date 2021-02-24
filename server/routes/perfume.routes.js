@@ -11,6 +11,6 @@ module.exports = function(app){
     app.put('/api/perfume/:id', PerfumeController.updatePerfume);
 
     // app.post('/api/author', AuthorController.createAuthor);
-    app.get('/api/getAllLikes/:id',PerfumeController.getAllLikesforItem);
+    // app.get('/api/getAllLikes/:id',PerfumeController.getAllLikesforItem);
     app.put('/api/updateLike/:id',PerfumeController.updateLike);
 }

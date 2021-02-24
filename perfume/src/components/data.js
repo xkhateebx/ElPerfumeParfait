@@ -18,8 +18,8 @@ export const links = [
   },
   {
     id: 4,
-    url: '/contact',
-    text: 'contact',
+    url: '/search',
+    text: 'search',
   },
   {
     id: 5,

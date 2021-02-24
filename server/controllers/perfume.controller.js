@@ -47,8 +47,9 @@ module.exports.deletePerfume = (request, response) => {
 
 //Likes
 module.exports.updateLike = (request, response) => {
-    const { likes } = request.body;
-    Perfume.findOneAndUpdate({_id: request.params.id}, {likes}, {new:true})
+    // Perfume.findById({_id: request.params.id})
+    // .then(perfume => perfume.update({likes: perfume.likes + 1}))
+    Perfume.findOneAndUpdate({_id: request.params.id}, request.body , {new:true})
         .then(like => response.json(like))
         .catch(err => response.json(err))
 }

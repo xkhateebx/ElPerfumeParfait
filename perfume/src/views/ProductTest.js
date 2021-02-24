@@ -80,21 +80,21 @@ export default props => {
                       <dl className="dlist-inline">
                         <a href={perfume.wheretobuy}><dt> <img src={`../images/ebay.png`} width='100px'/> </dt></a>
                         <dd>
-                          <span className="form-check-label"></span>
+                            <span className="form-check-label"></span>
                         </dd>
-                      </dl>
+                        </dl>
                     </div>
-                  </div>
-                  <hr />
-                  <h2>{perfume.description}</h2>
-                  <Tabs />
-                  <LikeButton perfumeId={perfume._id} addLikesHandler={addLikes} />
-                  <p style={{color:"#f14444"}}>{likes}<FavoriteIcon className="heart"/></p>
+                    </div>
+                    <hr />
+                <h2>{perfume.description}</h2>
+                    <Tabs />
+                    <LikeButton perfumeId={perfume._id} addLikesHandler={addLikes} />
+                    <p style={{color:"#f14444"}}>{likes}<FavoriteIcon className="heart"/></p>
                 </article>
-              </aside>
+                </aside>
             </div>
-          </div>
+            </div>
         
-      );
+    );
     };
 
