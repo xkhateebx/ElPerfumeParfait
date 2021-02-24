@@ -39,6 +39,7 @@ const PerfumeSchema = new mongoose.Schema({
     
     likes: {
         type :Number,
+        default: 0,
         max: 1
     }
 }, { timestamps: true });
