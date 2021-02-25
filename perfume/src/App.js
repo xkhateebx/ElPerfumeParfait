@@ -9,13 +9,16 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UpdatePage from './views/UpdatePage';
 import SingleProduct from './views/SingleProduct';
-import TestAdminPage from './views/TestAdminPage';
+import TestAdminPage from './views/Test/TestAdminPage';
 // import Profile from './components/Profile';
 import Search from './components/Search';
-import TestLogin from './components/TestLogin';
-import ProductTest from '../src/views/ProductTest';
 import { Main } from './views/Main';
 import ScrollToTop from './components/ScrollToTop';
+
+//Testing
+import TestLogin from './components/TestLogin';
+import ProductTest from '../src/views/Test/ProductTest';
+import AllProductsTest from '../src/views/Test/AllProductsTest';
 
 function App() {
   return (
@@ -23,22 +26,21 @@ function App() {
 
       <Navbar/>
       <Router>
-        {/* <Profile path='/prof'/> */}
-        <Search path='/search'/>
         <Hero path="/" />
-        <AdminPage path="/admin"/>
         <Product path="/products" />
         <AboutUs path='/about'/> 
-        <Main path="/register" />
+        <Search path='/search'/>
         <AboutPage path="/aboutus"/>
         <UpdatePage path="/update/:id"/> 
         <SingleProduct path="/products/:id" />
+        <Main path="/register" />
+        <AdminPage path="/admin"/>
 
         {/* Testing Components */}
         <TestAdminPage path="/test" />
         <TestLogin path="/loginTest" />
-        <ProductTest path="testest"/>
-        
+        <AllProductsTest path="/testAll" />
+        <ProductTest path="/testest/:id"/>
       </Router>
       <ScrollToTop />
       <Footer/>

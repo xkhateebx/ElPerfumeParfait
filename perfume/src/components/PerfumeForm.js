@@ -37,7 +37,7 @@ export default props => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        onSubmitProp({name, company,description,content,image,wheretobuy});
+        onSubmitProp({name, company,description,content,image,wheretobuy,wheretobuy2});
     }
 
     return (

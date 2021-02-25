@@ -1,8 +1,7 @@
 import React, { useState, Fragment, useEffect } from 'react'
-import Adding from '../components/Adding'
-import Editing from '../components/Editing'
-import PerfumesList from '../components/PerfumeList'
-import TestList from '../components/TestList'
+import Adding from '../../components/Test/Adding'
+import Editing from '../../components/Test/Editing'
+import TestList from '../../components/Test/TestList'
 import axios from 'axios';
 
 const App = () => {

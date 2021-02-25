@@ -15,7 +15,7 @@ const LikeButton = (props) => {
             {/* <form onSubmit={ onLikeHandler }> */}
                 <Wrapper >
                 <button onClick={props.addLikesHandler} className='btn hero-btn'>
-                <i className="fa fa-shopping-cart">Like</i>
+                <i className="fa fa-heart" style={{fontFamily:"Helvetica"}}>Like</i>
                 </button>
                 </Wrapper>
             {/* </form> */}
@@ -40,7 +40,7 @@ const Wrapper = styled.section`
   border-color: transparent;
 }
 .btn:hover {
-  color: var(--clr-primary-1);
+  color: var(--clr-primary-10);
   background: var(--clr-primary-7);
 }
 `

@@ -55,9 +55,10 @@
     height: 100%;
   }
 .currency{
-  color: #007bff ;
+  color: #49a6e9 ;
+  text-shadow: 1px 2px rgb(142, 223, 226);
 }  
   
 .heart{
-  color: #f14444;
+  color: #f50057;
 }

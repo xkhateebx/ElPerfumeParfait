@@ -84,14 +84,13 @@ onSubmit = (e) => {
                 <CardBody >
                   <CardTitle> <h2><strong>Login</strong></h2></CardTitle>
                 <CardSubtitle className="text-muted">Don't have an account?
-                <Link to="/register"> Register. </Link></CardSubtitle>
+                <Link to="/"> Register. </Link></CardSubtitle>
                 <br/>
                 {this.state.msg ? (
               <Alert color="danger">{this.state.msg}</Alert>
             ) : null}
                   <Form onSubmit={this.onSubmit} >
                   <FormGroup>
-
                     <Label for="email">E-mail</Label>
                     <Input
                       type="email"

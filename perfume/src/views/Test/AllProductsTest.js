@@ -15,7 +15,7 @@ const [perfumes, setPerfumes] = useState([])
     },[])
 
         return (
-              <Wrapper  >
+<Wrapper  >
                 {perfumes.length > 0 && perfumes.map((item,index)=>
                 {
                     return(
@@ -24,7 +24,7 @@ const [perfumes, setPerfumes] = useState([])
                           <center>
                           <img src={`../images/${item.image}.jpg`} alt={item.image}/>
                           </center>
-                          <Link to={"/products/"+item._id} className='link'>
+                          <Link to={"/testest/"+item._id} className='link'>
                             <FaSearch />
                           </Link>
                         </div>

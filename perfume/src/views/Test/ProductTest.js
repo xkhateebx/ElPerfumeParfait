@@ -6,8 +6,8 @@ import { withRouter } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import _ from 'lodash';
 import ReactImageMagnify from 'react-image-magnify';
-import '../../src/components/style.css';
-import LikeButton from '../../src/components/LikeButton';
+import '../../../src/components/style.css';
+import LikeButton from '../../components/LikeButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Icon } from '@material-ui/core';
 
@@ -56,7 +56,7 @@ export default props => {
 
   const addLikes = (e) =>{
     e.preventDefault();
-    // alert(`You Liked"${perfume.name}"`); 
+    alert(`You Liked"${perfume.name}"`); 
     let likesCount = likes + 1;
     axios.put('http://localhost:8000/api/updateLike/'+ props.id,{
       likes: likesCount
@@ -117,20 +117,23 @@ export default props => {
                           onChange={handleChange}
                           aria-label="simple tabs example"
                         >
-                          <Tab label="Brand" />
-                          <Tab label="Description" />
+                          <Tab label="Company" />
+                          <Tab label="Describtion" />
                           <Tab label="Content" />
                           <Tab label="" />
                         </Tabs>
                       </AppBar>
-                      <TabPanel value={value} index={0} style={{fontfamily:"Roboto",color:"#888787"}}>
+                      <TabPanel value={value} index={0}>
                         {perfume.company}
+                        {/* <Form1 onSubmit={onSubmit} store={store} /> */}
                       </TabPanel>
-                      <TabPanel value={value} index={1} style={{fontfamily:"Roboto",color:"#888787"}}>
+                      <TabPanel value={value} index={1}>
                         {perfume.description}
+                        {/* <Form2 onSubmit={onSubmit} store={store} /> */}
                       </TabPanel>
-                      <TabPanel value={value} index={2} style={{fontfamily:"Roboto",color:"#888787"}}>
+                      <TabPanel value={value} index={2}>
                         {perfume.content}
+                        {/* <Form3 onSubmit={onSubmit} store={store} /> */}
                       </TabPanel>
                       </dt>
                       {/* </center> */}

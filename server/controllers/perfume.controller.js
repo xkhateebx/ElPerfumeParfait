@@ -22,6 +22,7 @@ module.exports.getAllPerfumes = (request, response) => {
     Perfume.find({})
         .then(allPerfumes => response.json(allPerfumes))
         .catch(err => response.json(err))
+       
 }
 
 //Get Perfume By Id

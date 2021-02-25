@@ -89,3 +89,9 @@ h1{
   animation: fadeIn 700ms ease-in-out 1s both;
   cursor: pointer;
 }
+
+.search{
+  margin-top:20px;
+  box-shadow: 2px 1.5px silver;
+  border: 1px dotted rgb(133, 112, 112);
+}

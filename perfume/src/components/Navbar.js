@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { links, social } from '../components/data';
-import logo from '../logo.png';
+// import logo from '../logo.png';
+import final_logo from '../final_logo.png';
+// import perfume from '../perfume.png';
+// import bottlePerfume from '../bottlePerfume.jpg';
 import styled from 'styled-components'
 
 const Navbar = () => {
@@ -24,7 +27,7 @@ const Navbar = () => {
     <nav>
       <div className='nav-center'>
         <div className='nav-header'>
-          <img src={logo} className='logo' alt='logo' />
+          <img src={final_logo} className='logo' alt='logo' />
           <button className='nav-toggle' onClick={toggleLinks}>
             <FaBars />
           </button>
@@ -79,6 +82,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+
 }
 .nav-toggle {
   font-size: 1.5rem;
@@ -93,7 +97,8 @@ nav {
   transform: rotate(90deg);
 }
 .logo {
-  height: 40px;
+  height: 70px;
+  width: 130px;
 }
 .links a {
   color: var(--clr-grey-3);

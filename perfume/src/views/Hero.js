@@ -5,6 +5,7 @@ import heroBcg from '../assests/hero-bcg.jpeg'
 import heroBcg2 from '../assests/hero-bcg-2.jpeg'
 import ServicesPage from './ServicesPage';
 import Search from '../components/Search';
+import final_logo from '../final_logo.png';
 
 const Hero = () => {
   
@@ -12,17 +13,20 @@ const Hero = () => {
     <>
     <Wrapper className='section-center'>
       
-      <article className='contentHome'>
-        <h1>
-        El Perfume <br />
-        Parfait
+      <article className='contentHome' >
+        <div className='nameLogo'>
+      {/* <img src={final_logo} className='logo' alt='logo' width="150px" height="80px"/> */}
+        <h1 style={{textShadow:"1px 2px grey"}}>
+          El Perfume <br/> Parfait
         </h1>
+        </div>
         <p>
-        Find discount perfume, discounts on leading brands of cheap women's perfumes, men's colognes, skin care and hair care products.
-
+          "May the scents ever linger in your nose"<br/>
+          Ever Wonder What's Your Favorite Perfume is Made of?<br/>
+          Discover More about Perfumes with El Perfume Parfait
         </p>
         <Link to='/products' className='btn hero-btn'>
-          all perfume
+          All Perfumes
         </Link>
       </article>
       <article className='img-container'>

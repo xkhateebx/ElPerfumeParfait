@@ -15,7 +15,6 @@ const RegisterForm = props => {
         setErrors(res.errors);
         if(res.errors.length<=0)
             res.source.cancel();
-
     }
     useEffect(() => {
         return () => {

@@ -79,7 +79,12 @@ return (
             </Typography>
             <img src={`../images/wheel.jpg`}  height="500px" width="500px"/>
             <Typography variant="h5"  color="textSecondary" paragraph>
-            Perfume is a liquid that gives people, things and rooms a good smell. It is made of oils which give off scent to the surrounding air. The odoriferous compounds that make up a perfume can be manufactured synthetically or extracted from plant or animal sources. Perfumes were used in the earliest human civilizations.            </Typography>
+              Perfume is a liquid that gives people, things and rooms a good smell.
+              The odoriferous compounds that make up a perfume can be manufactured synthetically or extracted from plant or animal sources. <br/>
+              Each perfume components hold a hirearchy which consists of Top Notes, Middle Notes and Base Notes. <br/>
+              The Top notes are what first catches to the nose. The Middle lingers after the perfume settles. <br/>
+              And lastly the base notes are what stays after a while. <br />
+            </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -96,7 +101,12 @@ return (
         <Container className={classes.cardGrid} maxWidth="md">
         <Typography variant="h5"  color="textSecondary" paragraph>
         <h1>About Us</h1>
-            Le Perfume Parfait is a website for Perfume Connoisseurs and people that just love perfumes! this project was created to make it it easier for people to browse their favourite perfumes and find information about its ingredients, manufacturer and where to buy them online.
+            Le Perfume Parfait is a website for Perfume Connoisseurs and people that just love perfumes! <br/>
+            This project was created to 
+            make it it easier for people to browse their
+            favourite perfumes and find information about its ingredients, 
+            manufacturer and where to buy them online. <br/>
+            If you ever wondered what's your perfume is made of, then El Perfume Parfait has the answer for you!
             </Typography>
         </Container>
       </main>
