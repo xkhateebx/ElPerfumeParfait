@@ -1,5 +1,12 @@
 import React, { useState,useEffect } from "react"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import FormGroup from '@material-ui/core/FormGroup';
+import Button from '@material-ui/core/Button';
+import '../components/style.css';
+
 const LoginForm = props => {
     const { onSubmitProp,changeView } = props;
     const [email, setEmail] = useState("");
@@ -22,29 +29,44 @@ const LoginForm = props => {
     }, [])
 
     return(
-<MDBContainer>
-  <MDBRow>
-    <MDBCol md="6">
-      <form onSubmit={ onSubmit } >
-        <p className="h4 text-center mb-4">Sign in</p>
-        <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-          Your email
-        </label>
-        <input onChange={(e)=>setEmail(e.target.value)} value ={email} type="email" id="defaultFormLoginEmailEx" className="form-control" />
-        <br />
-        <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-          Your password
-        </label>
-        <input onChange={(e)=>setPassword(e.target.value)} value ={password} type="password" id="defaultFormLoginPasswordEx" className="form-control" />
-        <div className="text-center mt-4">
-		<a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>create new account ?</a>
-          <MDBBtn color="indigo" type="submit">Login</MDBBtn>
-        </div>
-      </form>
-	   <p>{errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)}</p>
-    </MDBCol>
-  </MDBRow>
-</MDBContainer>
+      <Box component="div" className="login-form-bg">
+      <Box component="div" className="login-form-overlay">
+        <Container maxWidth="sm" className="login-form py-5">
+
+          <form
+            noValidate
+            autoComplete="off"
+            className="w-75 mx-auto py-5"
+            onSubmit={ onSubmit }
+          >
+            <h3 className="font-weight-bold mb-4">Sign In</h3>
+            <FormGroup className="mb-4">
+              <TextField id="email" label="Email" onChange={(e)=>setEmail(e.target.value)} value ={email} />
+            </FormGroup>
+            <FormGroup className="mb-4">
+              <TextField
+                type="password"
+                id="password"
+                label="Password"
+                onChange={(e)=>setPassword(e.target.value)} value ={password}
+              />
+            </FormGroup>
+            <Box component="div" className="mb-5">
+              <span className="text-muted"><a onClick={()=>changeView()}  style={{textDecoration:'underline',color:'blue'}}>create new account ?</a> </span>
+            </Box>
+            <Box component="div" className="text-right">
+              <center>
+              <Button type="submit" variant="outlined" color="secondary" className="px-5 py-2">
+                Login
+              </Button>
+              </center>
+            </Box>
+          </form>
+		  	   <p>{errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)}</p>
+
+        </Container>
+      </Box>
+    </Box>
 
 
     )

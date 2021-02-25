@@ -32,7 +32,7 @@ const PerfumeSchema = new mongoose.Schema({
         minLength: [2, "Add Links"]
     },
     comments: [{
-        type: Schema.Types.ObjectId,
+        type: Array,
         minLength: [2, "Comment Must have at least 2 Characters"],
         ref: "Comment"
     }],
